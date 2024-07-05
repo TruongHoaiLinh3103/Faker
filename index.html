@@ -16,36 +16,36 @@
      </code></pre>
      <h2 id="🪄-usage">🪄 Usage</h2>
      <pre class="box-x"><code class="language-ts">// ESM
-     import { faker } from &#39;@faker-js/faker&#39;;
-     
-     // CJS
-     const { faker } = require(&#39;@faker-js/faker&#39;);
-     
-     export function createRandomUser(): User {
-       return {
-         userId: faker.string.uuid(),
-         username: faker.internet.userName(),
-         email: faker.internet.email(),
-         avatar: faker.image.avatar(),
-         password: faker.internet.password(),
-         birthdate: faker.date.birthdate(),
-         registeredAt: faker.date.past(),
-       };
-     }
-     
-     export const USERS: User[] = faker.helpers.multiple(createRandomUser, {
-       count: 5,
-     });
+ import { faker } from &#39;@faker-js/faker&#39;;
+ 
+ // CJS
+ const { faker } = require(&#39;@faker-js/faker&#39;);
+ 
+ export function createRandomUser(): User {
+   return {
+     userId: faker.string.uuid(),
+     username: faker.internet.userName(),
+     email: faker.internet.email(),
+     avatar: faker.image.avatar(),
+     password: faker.internet.password(),
+     birthdate: faker.date.birthdate(),
+     registeredAt: faker.date.past(),
+   };
+ }
+ 
+ export const USERS: User[] = faker.helpers.multiple(createRandomUser, {
+   count: 5,
+ });
      </code></pre>
      <h2 id="💎-modules">💎 Modules</h2>
      <p>An in-depth overview of the API methods is available in the documentation for <a href="https://fakerjs.dev/api/">v8 (stable)</a> and <a href="https://next.fakerjs.dev/api/">v8.* (next)</a>.</p>
      <h3 id="templates">Templates</h3>
      <p>Faker contains a generator method <code>faker.helpers.fake</code> for combining faker API methods using a mustache string format.</p>
      <pre class="box-x"><code class="language-ts">console.log(
-       faker.helpers.fake(
-         &#39;Hello {{person.prefix}} {{person.lastName}}, how are you today?&#39;
-       )
-     );
+   faker.helpers.fake(
+     &#39;Hello {{person.prefix}} {{person.lastName}}, how are you today?&#39;
+   )
+ );
      </code></pre>
      <h2 id="🌏-localization">🌏 Localization</h2>
      <p>Faker has support for multiple locales.</p>
@@ -53,10 +53,10 @@
         But you can also import instances using other locales.
      </p>
      <pre class="box-x"><code class="language-ts">// ESM
-     import { fakerDE as faker } from &#39;@faker-js/faker&#39;;
-     
-     // CJS
-     const { fakerDE: faker } = require(&#39;@faker-js/faker&#39;);
+ import { fakerDE as faker } from &#39;@faker-js/faker&#39;;
+ 
+ // CJS
+ const { fakerDE: faker } = require(&#39;@faker-js/faker&#39;);
      </code></pre>
      <p>See our documentation for a list of <a href="https://fakerjs.dev/guide/localization.html#available-locales">provided languages</a>.</p>
      <p>Please note: Not every locale provides data for every module. In our pre-made faker instances,
@@ -65,22 +65,22 @@
      </p>
      <pre class="box-x"><code class="language-ts">import { de, de_CH, Faker } from &#39;@faker-js/faker&#39;;
      
-     export const faker = new Faker({
-       locale: [de_CH, de],
-     });
+ export const faker = new Faker({
+   locale: [de_CH, de],
+ });
      </code></pre>
      <h2 id="⚙️-setting-a-randomness-seed">⚙️ Setting a randomness seed</h2>
      <p>If you want consistent results, you can set your own seed:</p>
      <pre class="box-x"><code class="language-ts">faker.seed(123);
      
-     const firstRandom = faker.number.int();
-     
-     // Setting the seed again resets the sequence.
-     faker.seed(123);
-     
-     const secondRandom = faker.number.int();
-     
-     console.log(firstRandom === secondRandom);
+ const firstRandom = faker.number.int();
+ 
+ // Setting the seed again resets the sequence.
+ faker.seed(123);
+ 
+ const secondRandom = faker.number.int();
+ 
+ console.log(firstRandom === secondRandom);
      </code></pre>
 </body>
 </html>
